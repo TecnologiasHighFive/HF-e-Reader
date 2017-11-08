@@ -10,7 +10,6 @@ face detection threads and PDF reading
 
 
 from face_detection import Detect
-from threading import Thread
 
 
 def main():
