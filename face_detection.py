@@ -20,10 +20,6 @@ class Detect(threading.Thread):
 
     def _detect(self):
 
-        # Benchmark results
-        runs = 0
-        eyes = 0
-        
         """Class function to detect faces and eyes within faces"""
         video_stream = WebcamVideoStream()
         video_stream.start()
@@ -42,7 +38,7 @@ class Detect(threading.Thread):
                 roi_color = frame[y:y+h, x:x+h]
 
                 eyes = eye_cascade.detectMultiScale(roi_gray)
-                print('[FACE DETECTION] %d eyes detected' % len(eyes))
+                
                 if len(eyes)/len(faces) == 2:
                     for (ex, ey, ew, eh) in eyes:
                         cv2.rectangle(roi_color, (ex, ey),
